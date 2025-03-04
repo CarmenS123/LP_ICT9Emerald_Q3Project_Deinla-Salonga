@@ -66,12 +66,9 @@
         <img src="metro line map.png" alt="train map"> 
 
 
-    <form>
- 
-  <br>
-
-  <!-- the buttons r here -->
-  <label> Leaving From: </label>
+    <!-- computations -->
+    
+   <label> Leaving From: </label>
       <select class="form-select" id="leave">
       <option value="none">Select</option>
       <option value="1"> PlaceNameA </option>
@@ -96,11 +93,8 @@
 
           <div class="container">
 
-            <h5 id="display"> </h5>
-        
-            <button type="button" class="btn btn-danger" onclick="document.getElementById('display').innerHTML = final_regfare;" style="font-size: 27px">Regular Fare</button>
-            <button type="button" class="btn btn-danger" onclick="discounted_fare()" style="font-size: 27px"> Discounted Fare</button>
-            
+            <span> <h1 id="fareprice"> RESULT </h1> </span> 
+
           <br><br>
 </form>
 
@@ -117,7 +111,7 @@ function discounted_fare() {
   var computation1 = (leave1 + going1);
   var final_discfare = computation1 - (discount_amount*computation1);
 
-  document.write ('Your ticket price is ' + final_discfare);
+  document.getElementById('fareprice').innerHTML = final_discfare;
 
 }
 </script>
@@ -128,11 +122,13 @@ function discounted_fare() {
     var going2 = document.getElementById ('going').value;
     var final_regfare = (leave2 + going2);
   
-    document.write ('Your ticket price is ' + final_regfare);
+    document.getElementById('fareprice').innerHTML = final_regfare;
   
   }
 
   </script>
+
+
 
     
 </body>
