@@ -15,6 +15,7 @@
 
          body{
         background-image: url(bgtrain.png);
+        text-align: center;
         background-size: cover;
 
        }
@@ -61,12 +62,14 @@
           </div>
         </nav>
 
-        <br>
+        <br><br><br><br>
 
         <div class="container">  
         
-            <h1 style="background-color:gray; color:black"> Train Fare Guide </h1>
+            <h1 style="background-color: rgb(200, 200, 200); color:black; border-radius:12px"> Train Fare Guide </h1>
         
+            <br>
+
         </div>
 
         <img src="metro line map.png" alt="train map"> 
@@ -75,47 +78,46 @@
         <label>Choose your Origin Point</label>
         <select id="to" class="form-select">
             <option disabled selected value="none">Select Destination</option>
-            <option value="Taft">Taft Avenue</option>
-            <option value="Mag">Magallanes</option>
-            <option value="Aya">Ayala</option>
-            <option value="Buen">Buendia</option>
-            <option value="Guad">Guadalupe</option>
-            <option value="Bon">Boni</option>
-            <option value="Shaw">Shaw Boulevard</option>
-            <option value="Orti">Ortigas</option>
-            <option value="San-An">Santolan-Annapolis</option>
-            <option value="Aran-Cub">Araneta-Cubao</option>
-            <option value="Kam">Kamuning</option>
-            <option value="Quez">Quezon Avenue</option>
-            <option value="North">North Avenue</option>
+            <option value="15">Taft Avenue</option>
+            <option value="15">Magallanes</option>
+            <option value="11">Ayala</option>
+            <option value="7">Buendia</option>
+            <option value="7">Guadalupe</option>
+            <option value="4">Boni</option>
+            <option value="4">Shaw Boulevard</option>
+            <option value="4">Ortigas</option>
+            <option value="3">Santolan-Annapolis</option>
+            <option value="3">Araneta-Cubao</option>
+            <option value="0">Kamuning</option>
+            <option value="0">Quezon Avenue</option>
+            <option value="0">North Avenue</option>
         </select>
 <br>
         <label>Choose your Destination</label>
         <select id="from" class="form-select">
             <option disabled selected value="none">Select Destination</option>
-            <option value="Taft">Taft Avenue</option>
-            <option value="Mag">Magallanes</option>
-            <option value="Aya">Ayala</option>
-            <option value="Buen">Buendia</option>
-            <option value="Guad">Guadalupe</option>
-            <option value="Bon">Boni</option>
-            <option value="Shaw">Shaw Boulevard</option>
-            <option value="Orti">Ortigas</option>
-            <option value="SanAn">Santolan-Annapolis</option>
-            <option value="AranCub">Araneta-Cubao</option>
-            <option value="Kam">Kamuning</option>
-            <option value="Quez">Quezon Avenue</option>
-            <option value="North">North Avenue</option>
+            <option value="15">Taft Avenue</option>
+            <option value="15">Magallanes</option>
+            <option value="11">Ayala</option>
+            <option value="7">Buendia</option>
+            <option value="7">Guadalupe</option>
+            <option value="4">Boni</option>
+            <option value="4">Shaw Boulevard</option>
+            <option value="4">Ortigas</option>
+            <option value="3">Santolan-Annapolis</option>
+            <option value="3">Araneta-Cubao</option>
+            <option value="0">Kamuning</option>
+            <option value="0">Quezon Avenue</option>
+            <option value="0">North Avenue</option>
         </select>
-<br>
-        <label>Discounts</label>
-        <select class="form-select" id="discount">
-            <option disabled selected value="none">Select Option</option>
-            <option value="1">Regular</option>
-            <option value="0.8">PWD/Senior Citizen/Student</option>
-        </select>
-<br>
-    <button button type="button" class="btn btn-warning mx-auto d-block" onclick="check_discount()">Ticket Price</button>
+
+        <br>
+
+    <button button type="button" class="btn btn-warning mx-auto d-block" onclick="regular_price()">Regular Ticket Price</button>
+
+    <br>
+
+    <button button type="button" class="btn btn-warning mx-auto d-block" onclick="discount()">Discounted Ticket Price</button>
 </div>
     </form>
 <br>
@@ -124,33 +126,39 @@
 </div>
 </div>
     <script>
-         var fare_prices = {
+         function regular_price() {
 
-             "Taft-Mag": 13.00;
+            var towards = document.getElementById('to').value;
 
-             "Taft-Aya": 13.00;
+            var comin = document.getElementById('from').value;
 
-            "Taft-Buen": 16.00;
+            var difference = towards - comin;
 
-             "Taft-Guad": 16.00;
+            var base_fare = 13;
 
-            "Taft-Bon": 20.00
+            var final_fare = difference + base_fare;
 
-             "Taft-Shaw": 20.00
+            window.alert (final_fare);
 
-            "Taft-Orti": 20.00
+        }
 
-             "Taft-SanAn": 24.00
+         function discount() {
 
-            "Taft-AranCub": 24.00
+            var towards = document.getElementById('to').value;
 
-             "Taft-Kam": 24.00
+            var comingin = document.getElementById('from').value;
 
-            "Taft-Quez": 28.00
+            var difference = towards - comingin;
 
-             "Taft-North": 28.00
-             
-         }
+            var base_fare = 13;
+
+            var final_fare = difference + base_fare;
+
+            var discount_fare = final_fare * 0.2
+
+            window.alert ("The final fare WITH discount is" + discount_fare);
+
+        }
     </script>
     
 </body>
