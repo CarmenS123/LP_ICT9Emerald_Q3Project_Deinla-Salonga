@@ -65,71 +65,87 @@
 
         <img src="metro line map.png" alt="train map"> 
 
-
-    <!-- computations -->
-    
-   <label> Leaving From: </label>
-      <select class="form-select" id="leave">
-      <option value="none">Select</option>
-      <option value="1"> PlaceNameA </option>
-      <option value="2"> PlaceNameB </option>
-      <option value="3"> PlaceNameC </option>
-      </select>
-
-      <br>
-
-      <label>Going to:</label>
-      <select class="form-select" id="going">
-          <option value="none"> Select </option>
-          <option value="4"> EndPlaceNameA </option>
-          <option value="5">EndPlaceNameB</option>
-          </select>
-
-          <br>
-
-          <button type="button" class="btn btn-danger" onclick="regular_fare()" style="font-size: 27px"> Regular Fare</button>
-          <button type="button" class="btn btn-danger" onclick="discounted_fare()" style="font-size: 27px"> Discounted Fare</button>
-
-
-          <div class="container">
-
-            <span> <h1 id="fareprice"> RESULT </h1> </span> 
-
-          <br><br>
-</form>
-
-
+        <form>
+        <label>Choose your Origin Point</label>
+        <select id="to" class="form-select">
+            <option disabled selected value="none">Select Destination</option>
+            <option value="Taft">Taft Avenue</option>
+            <option value="Mag">Magallanes</option>
+            <option value="Aya">Ayala</option>
+            <option value="Buen">Buendia</option>
+            <option value="Guad">Guadalupe</option>
+            <option value="Bon">Boni</option>
+            <option value="Shaw">Shaw Boulevard</option>
+            <option value="Orti">Ortigas</option>
+            <option value="San-An">Santolan-Annapolis</option>
+            <option value="Aran-Cub">Araneta-Cubao</option>
+            <option value="Kam">Kamuning</option>
+            <option value="Quez">Quezon Avenue</option>
+            <option value="North">North Avenue</option>
+        </select>
+<br>
+        <label>Choose your Destination</label>
+        <select id="from" class="form-select">
+            <option disabled selected value="none">Select Destination</option>
+            <option value="Taft">Taft Avenue</option>
+            <option value="Mag">Magallanes</option>
+            <option value="Aya">Ayala</option>
+            <option value="Buen">Buendia</option>
+            <option value="Guad">Guadalupe</option>
+            <option value="Bon">Boni</option>
+            <option value="Shaw">Shaw Boulevard</option>
+            <option value="Orti">Ortigas</option>
+            <option value="SanAn">Santolan-Annapolis</option>
+            <option value="AranCub">Araneta-Cubao</option>
+            <option value="Kam">Kamuning</option>
+            <option value="Quez">Quezon Avenue</option>
+            <option value="North">North Avenue</option>
+        </select>
+<br>
+        <label>Discounts</label>
+        <select class="form-select" id="discount">
+            <option disabled selected value="none">Select Option</option>
+            <option value="1">Regular</option>
+            <option value="0.8">PWD/Senior Citizen/Student</option>
+        </select>
+<br>
+    <button button type="button" class="btn btn-warning mx-auto d-block" onclick="check_discount()">Ticket Price</button>
 </div>
+    </form>
+<br>
+</div>
+</div>
+</div>
+</div>
+    <script>
+         var fare_prices = {
 
+             "Taft-Mag": 13.00;
 
+             "Taft-Aya": 13.00;
 
-<script> 
-function discounted_fare() {
-  var discount_amount = 0.2; 
-  var leave1 = document.getElementById ('leave').value;
-  var going1 = document.getElementById ('going').value;
-  var computation1 = (leave1 + going1);
-  var final_discfare = computation1 - (discount_amount*computation1);
+            "Taft-Buen": 16.00;
 
-  document.getElementById('fareprice').innerHTML = final_discfare;
+             "Taft-Guad": 16.00;
 
-}
-</script>
+            "Taft-Bon": 20.00
 
-<script> 
-  function regular_fare() {
-    var leave2 = document.getElementById ('leave').value;
-    var going2 = document.getElementById ('going').value;
-    var final_regfare = (leave2 + going2);
-  
-    document.getElementById('fareprice').innerHTML = final_regfare;
-  
-  }
+             "Taft-Shaw": 20.00
 
-  </script>
+            "Taft-Orti": 20.00
 
+             "Taft-SanAn": 24.00
 
+            "Taft-AranCub": 24.00
 
+             "Taft-Kam": 24.00
+
+            "Taft-Quez": 28.00
+
+             "Taft-North": 28.00
+             
+         }
+    </script>
     
 </body>
 
